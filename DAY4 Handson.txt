@@ -1,0 +1,406 @@
+1)Array function handson
+
+package com.javaseleniumpackage;
+
+public class ArrayFunctionHandson {
+	//To print minimum value using function..
+	//Method can take any data type
+	//To use array in function,pass array as parameter within the function
+
+	public static void main(String args[]) {
+		int pincome[] = new int[5];
+		pincome[0]=32;
+		pincome[1]=21;
+		pincome[2]=11;
+		pincome[3]=41;
+		pincome[4]=15;
+		
+		
+	int min_pincome = minincome(pincome);//function call and assign min_pincome value to a variable
+		System.out.println("min percaptital income is "+ min_pincome);
+	}
+	
+//Function is minincome 
+	static int minincome(int[] avalues) {
+		int min_pincome =avalues[0];
+		for(int i=1;i<avalues.length;i++) {	
+			if(min_pincome> avalues[i]) {
+				min_pincome=avalues[i];
+				}
+			}
+		
+	return min_pincome;//return min_pincome value
+}
+		
+	}
+============================
+2)To print bubble sorting in ascending order
+package com.javaseleniumpackage;
+
+public class ArrayBubbleSort {
+
+	//To print bubble sorting in ascending order
+	
+	public static void main(String args[]) {
+		int sortarr[] = {82,52,-2,31,26,11};
+		System.out.println("Array before Sorting");
+		print(sortarr);
+		int[] rpincome=sortArray(sortarr);
+		System.out.println("Array after Sorting");
+		print(rpincome);
+		
+
+	}
+
+
+	
+	//Function is sortArray 
+
+	static int[] sortArray(int[] avalues) {
+		//i loop for 1st data and j for 2nd data comparison
+
+		for(int i=0;i<avalues.length;i++) {
+			for(int j=0;j<avalues.length-i-1;j++) {
+				if(avalues[j]<avalues[j+1]) {
+					int temp=avalues[j];
+					avalues[j]=avalues[j+1];
+					avalues[j+1]=temp;
+				}
+			}
+		}
+		return avalues;
+	}
+		
+		static void print(int[] arrprint) {
+			for(int i=0;i<arrprint.length;i++) {
+				System.out.println("print array"+ arrprint[i]);
+				}
+	}
+	}
+=================================
+3)package com.javaseleniumpackage;
+
+public class ArrayReverse {
+	public static void main(String args[]) {
+		int pincome[] = new int[5];
+		pincome[0]=32;
+		pincome[1]=21;
+		pincome[2]=11;
+		pincome[3]=41;
+		pincome[4]=15;
+		
+		int[] rev_Array=reverse(pincome);
+		print(rev_Array);
+		
+	}
+	//Code to Reverse string
+	
+	static int[] reverse(int[] avalues) {
+		int n=avalues.length,tmp;
+		for(int i=0;i<n/2;i++) {
+			//swap 0,4(tmp for storing swapped values)s
+			tmp=avalues[i];
+			avalues[i]=avalues[n-i-1];
+				avalues[n-i-1]=tmp;
+		
+			}
+return avalues;
+	}			
+
+ //Code to print to an array the reversed one
+ static void print(int[] avalues){
+	 System.out.println("-------Display Begin--");
+	 for(int i=0;i<avalues.length;i++) {
+		 System.out.println("Percapita income of city "+" is "+avalues[i]);
+
+	 }
+	 System.out.println("-------Display End--");
+
+ }
+ 
+ 
+}
+
+----------------------==================
+4)package com.javaseleniumpackage;
+
+public class ArrayReverse {
+	public static void main(String args[]) {
+		int pincome[] = new int[5];
+		pincome[0]=32;
+		pincome[1]=21;
+		pincome[2]=11;
+		pincome[3]=41;
+		pincome[4]=15;
+		
+		int[] rev_Array=reverse(pincome);
+		print(rev_Array);
+		
+	}
+	//Code to Reverse string
+	
+	static int[] reverse(int[] avalues) {
+		int n=avalues.length,tmp;
+		for(int i=0;i<n/2;i++) {
+			//swap 0,4(tmp for storing swapped values)s
+			tmp=avalues[i];
+			avalues[i]=avalues[n-i-1];
+				avalues[n-i-1]=tmp;
+		
+			}
+return avalues;
+	}			
+
+ //Code to print to an array the reversed one
+ static void print(int[] avalues){
+	 System.out.println("-------Display Begin--");
+	 for(int i=0;i<avalues.length;i++) {
+		 System.out.println("Percapita income of city "+" is "+avalues[i]);
+
+	 }
+	 System.out.println("-------Display End--");
+
+ }
+ 
+ 
+}
+
+5)Construor Hndson
+package com.javaseleniumpackage;
+
+public class ConstructorHandson {
+
+		int id;
+		String name;
+		
+		//constructor for initialization
+		ConstructorHandson(){
+			id=0;
+			name="";
+		}
+		
+		
+		ConstructorHandson(int pid,String Pname){
+			id=pid;
+			name=Pname;
+		}
+		void display() {
+			System.out.println("id="+id+"name="+name);
+		}
+		
+		
+		public static void main(String args[]) {
+		ConstructorHandson prodj= new ConstructorHandson(101,"Furniture sofaset");
+		prodj.id=1;
+		prodj.name="Laptop";
+		prodj.display();
+		
+	}
+}
+
+6)Object as Array
+package com.javaseleniumpackage;
+
+public class ObjectAsArrayHandson {
+
+	int id;
+	String name;
+
+//Constructor for initialization	
+	ObjectAsArrayHandson(int pid,String Pname){
+		id=pid;
+		name=Pname;
+	}
+	void display() {
+		System.out.println("id="+id+"name="+name);
+	}
+	
+	
+	public static void main(String args[]) {
+		ObjectAsArrayHandson prodj[]= new ObjectAsArrayHandson[3];//Object as Array
+		prodj[0]=new ObjectAsArrayHandson(100,"Mobile");
+				prodj[1]=new ObjectAsArrayHandson(200,"Clothing");
+						prodj[2]=new ObjectAsArrayHandson(300,"Furniture chair");
+						
+						//Enhanced loop/for each loop
+						//for(ObjectAsArrayHandson prod:prodj) {
+							//prod.display();						}
+	//Using normal for loop
+	 for(int i=0;i<prodj.length;i++){
+	 							prodj[i].display();						}
+
+	 
+	
+}
+}
+-====================
+
+7)Object usage in multipl scenario
+package com.javaseleniumpackage;
+
+public class ObjectUsageinMultipleScenarios {
+
+	//Consider this class as a shopping cart.It has got data members,array of objects.
+	//Data members
+	//array of products
+	Product aprod[];
+	int cindex;
+	
+	
+	//Constructor
+	ObjectUsageinMultipleScenarios(){
+		aprod=new Produc[5];
+		cidex=0;
+	}
+	
+	//member method to add products
+	Product addProduct(Product prod) {
+		aprod[cindex]=prod;
+		cindex++;
+		 System.out.println("Added product with id"+prod.id);
+		return prod;
+	}
+	
+	//Member method list Products
+	void listProducts() {
+		for(int i=0; i<cindex; i++){
+			aprod[i].display();
+			 System.out.println("Deletec all products from shopping cart");
+
+		}
+	}
+//	Method to empty cart
+	 void emptycart() {
+		 aprod=new Product[5];
+		 cindex=0;
+		 System.out.println("Deletec all products from shopping cart");
+	 }
+		 
+}
+}
+
+public static void main(String args[]) {
+	ObjectUsageinMultipleScenarios scart= new ObjectUsageinMultipleScenarios();//Object as Array
+	Product p1=new Product(100,"Mobile");
+	scart.addProduct(p1);
+			Product p2=new Product(200,"Clothing");
+					scart.addProduct(p2);
+					scart.listProduct();
+}
+			
+===========================
+8)OOps cosept Hndson
+package com.javaseleniumpackage;
+
+ 
+	//class  Product is user defeined datatyepe..we created it..where are int is predefined datatype
+	class OopsConseptHandson{
+		int id;
+		String name;
+		//float price;
+		
+		//constructor for initialization
+		OopsConseptHandson(){
+			id=0;
+			name="";
+		}
+		
+		
+		OopsConseptHandson(int pid,String Pname){
+			id=pid;
+			name=Pname;
+		}
+		void display() {
+			System.out.println("id="+id+"name="+name);
+		}
+		
+		
+		public static void main(String args[]) {
+		OopsConseptHandson prodj= new OopsConseptHandson();//object creation for class product...prodj is used defined datatype
+		//		OopsConseptHandson prodj= new OopsConseptHandson(101,"Furniture sofaset");//Construct class data mapping
+		prodj.id=1;
+		prodj.name="Laptop";
+		//prodj.price=(float) 11.2;
+		prodj.display();
+		
+	}
+}
+======================================
+9)Test Reverse
+package com.javaseleniumpackage;
+
+public class TestReverse {
+	public static void main(String args[]) {
+		 int pincome[]=new int[5];
+		pincome[0]=32;
+		pincome[1]=21;
+		pincome[2]=11;
+		pincome[3]=41;
+		pincome[4]=15;
+		
+		int[] result =reverse(pincome);
+		print(result);
+	}
+	
+	
+	
+static int[] reverse(int[] arr) {
+		int n=arr.length,tmp;
+		for(int i=0;i<=n/2;i++) {
+			tmp=arr[i];
+		arr[i]=arr[n-i-1];
+			arr[n-i-1]=tmp;
+			
+		}
+		return arr;
+	}
+
+
+
+static void print(int[] arr) {
+	for(int i=0;i<=arr.length;i++) {
+		System.out.println("Reversed array"+arr[i]);
+	}
+}
+}
+
+
+=================================================
+10)2d Array
+package com.javaseleniumpackage;
+
+public class TwoDiamentionArrayHandson {
+
+	public static void main(String args[]) {
+		
+		float pincome[][]=new float[2][3];
+		pincome[0][0]=(float)5.8;//type casting to convert double to float
+		pincome[0][1]=(float)18.2;
+		pincome[0][2]=(float)5.18;
+		pincome[1][0]=(float)25.8;
+		pincome[1][1]=(float)16.4;
+		pincome[1][2]=(float)21.2;
+		
+		
+		print2dArray(pincome);
+	}
+	
+	
+	static void print2dArray(float[][] arr){
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+
+		}
+			System.out.println();
+	}
+	
+	
+	}}
+
+
+
+
+
+
+=========================	

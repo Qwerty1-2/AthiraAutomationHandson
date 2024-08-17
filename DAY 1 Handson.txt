@@ -1,0 +1,71 @@
+1)To print multiples of 1--10
+package com.javaseleniumpackage;
+
+public class JavaAssignments {
+
+	public static void main(String[] args) 
+	{
+int result;
+	for(int i=1;i<=10;i++) {
+			for(int j=1;j<=10;j++) {
+				
+	result=i*j;
+	System.out.println(i+"*"+j+"=" + result);
+
+=============================================================
+2_)To print Fibonacci series 
+package com.javaseleniumpackage;
+
+public class FibonacciSeries {
+
+	public static void main(String args[]) {
+		int a=0,b=1;
+		int n=1000;
+		for(int i=0;i<=n;i++) {
+			System.out.println(a);
+			int c=a+b;
+			a=b;
+			b=c;
+		}
+	}
+}
+
+	
+	
+			}
+		}
+	}
+
+=========================================
+
+3)prime number check
+
+package com.javaseleniumpackage;
+
+public class PrimeNumberCheck {
+	public static void main(String args[]) {
+	
+	int n=57;
+	boolean is_prime=true;
+	
+	for(int i=2;i<=n-1;i++) {
+if(n%i==0)		{
+			
+			is_prime=false;
+			break;
+		}}
+			
+	if(!is_prime) {
+		
+System.out.println(n+ " Number is not Prime ");
+
+		}
+		else {
+			System.out.println(n+ " Number is  prime ");
+		}
+	}
+
+}
+
+
+

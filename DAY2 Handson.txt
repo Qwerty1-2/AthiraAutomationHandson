@@ -1,0 +1,121 @@
+1)To find factorial
+package com.AssignmentPackage;
+
+public class FactorialUsingFunction {
+	public static void main(String args[]) {
+
+				System.out.println(" Factorial is " + findFact(5));
+		
+	}
+	
+ 
+	
+	static int findFact(int n) {
+		if(n==1) {
+			return 1;
+		}
+		else
+		{
+			return n*findFact(n-1);
+			
+		
+		}
+	}
+
+}
+
+
+2)To find number is prime/not using function
+package com.AssignmentPackage;
+
+public class PrimeUsingFunction {
+	public static void main(String args[]) {
+/*		int num;
+		int result=primeCheck(3);
+		System.out.println("result is " +result);
+	}
+	
+	
+	
+	static int primeCheck(int num) {
+for(int i=2;i<=num;i++)	{
+	if(num%i==0) {
+		
+System.out.println("Number is Prime");
+	}
+	else {
+		System.out.println("Number is not Prime");
+
+	}
+	
+
+return num;
+
+}
+return num;
+}
+}*/
+		
+		int result=primeCheck1(7);
+		System.out.println(result);
+	}
+		
+static int primeCheck1(int n) {
+	boolean is_prime=true;
+
+		for(int i=2;i<=n-1;i++) {
+	if(n%i==0)		{
+				
+				is_prime=false;
+				break;
+			}
+				
+		if(!is_prime) {
+			
+	System.out.println(n+ " Number is not Prime ");
+
+			}
+			else {
+				System.out.println(n+ " Number is  prime ");
+			}
+}
+		return n;
+}
+}
+
+3)To reverse digits of integer 6814 and print each digits seperately without using string
+package com.AssignmentPackage;
+
+public class ReverseIntergerDigits {
+	//To reverse digits of integer 6814 and print each digits seperately without using string
+	public static void main(String args[]) {
+		int num=6814;
+
+if(num!=0) {
+	
+	int num2=num%10;
+	System.out.println("num2");
+	
+			
+		}
+			
+		}
+	
+}
+	
+4)for each loop handson
+
+package com.javaseleniumpackage;
+
+public class ForeachLoopHandson {
+	public static void main(String args[]) {
+		char arr[]= {'e','g','w','d','s'};
+		
+		for(char c:arr) {
+			System.out.println(c);
+		}
+	}
+
+}
+
+5)

@@ -1,0 +1,305 @@
+1)Shopping Cart
+
+package com.javaseleniumpackage;
+
+public class ShoppingCart {
+	//data member
+	//array of products
+	
+	Product aprod[];
+	int cindex;
+
+	
+	//constructor
+	ShoppingCart(){
+		aprod=new Product[5];
+		cindex=0;
+	}
+	
+	//member methods
+//add product
+	Product addProduct(Product prod) {
+			aprod[cindex]=prod;
+			cindex++;
+			 System.out.println("Added product with id"+prod.id);
+			return prod;
+		}
+		
+// list Products
+		void listProducts() {
+			for(int i=0; i<cindex; i++){
+				aprod[i].display();
+				 System.out.println("Deletec all products from shopping cart");
+
+			}
+			void display() {
+				System.out.println("listed products are");
+			}
+		
+//	Empty cart
+		 void emptycart() {
+			 aprod=new Product[5];
+			 cindex=0;
+			 System.out.println("Deletec all products from shopping cart");
+		 
+	}
+
+	public static void main(String args[]) {
+		ShoppingCart scart= new ShoppingCart();//Object as Array
+		Product p1=new Product(100,"Mobile");
+		scart.addProduct(p1);
+		Product p2=new Product(200,"Clothing");
+		scart.addProduct(p2);
+		scart.listProducts();
+	
+	}}
+=============================================
+2)Static keyword
+package com.cstaticpackage;
+
+public class StaticKeyword {
+
+	int id;
+	String name;
+	static int num_of_products;
+	
+	StaticKeyword(){
+		id=0;
+		name="";
+		num_of_products=100;
+
+	}
+	StaticKeyword(int pid,String pname){
+		id=pid;
+		name=pname;
+		
+	}
+	public static int  get_num_products()
+{
+		return num_of_products;
+		}
+	
+	void display()
+	{
+		System.out.println("id"+id+" name "+"Total no of Products"+num_of_products);
+	}
+		
+		public static void main(String args[]) {
+	
+		System.out.println("Total no of products"+StaticKeyword.get_num_products());//class.function call since its static 
+		System.out.println("Total no of products"+StaticKeyword.display()); 
+
+	}
+}
+
+========================
+3)Access specifieers
+package com.javaseleniumpackage;
+
+public class TwoDiamentionArrayHandson {
+
+	public static void main(String args[]) {
+		
+		float pincome[][]=new float[2][3];
+		pincome[0][0]=(float)5.8;//type casting to convert double to float
+		pincome[0][1]=(float)18.2;
+		pincome[0][2]=(float)5.18;
+		pincome[1][0]=(float)25.8;
+		pincome[1][1]=(float)16.4;
+		pincome[1][2]=(float)21.2;
+		
+		
+		print2dArray(pincome);
+	}
+	
+	
+	static void print2dArray(float[][] arr){
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr[i].length;j++) {
+				System.out.print(arr[i][j]+"\t");
+
+		}
+			System.out.println();
+	}
+	
+	
+	}}
+
+
+
+
+
+
+=========
+package com.accessspecifiers;
+
+import com.cstaticpackage.StaticKeyword;
+
+public class Product {
+	public static void main(String args[]) {
+	private int id;
+	private String name;
+	private static int num_of_products;
+	final int MAX_Products;
+	/*
+	 this=>use as return value
+	 this.=>avoid name collition between datamembers and parameters
+	 this()=>to call one constructor from another construcor,if same class
+	 */
+	
+	
+	
+	private Product(){
+		id=0;
+		name="";
+	//	num_of_products=100;
+
+	}
+	Product(int pid,String pname){
+		this();//to call one construction from another costructor in same class
+		id=pid;
+		name=pname;
+		
+	}
+
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public static int getNum_of_products() {
+		return num_of_products;
+	}
+	public static void setNum_of_products(int num_of_products) {
+		Product.num_of_products = num_of_products;
+	}
+		
+	Product display() {
+		System.out.println("id"+id+"name"+name+"num_of_products"+num_of_products);//class.function call since its static 
+
+	}}
+============
+package com.accessspecifiers;
+
+public class ShoppingCart {
+
+	
+		private Product aprod[];
+	private	int cindex;
+
+		
+		//constructor
+		ShoppingCart(){
+			aprod=new Product[5];
+			cindex=0;
+		}
+		
+		/
+		Product addProduct(Product prod) {
+				aprod[cindex]=prod;
+				cindex++;
+				 System.out.println("Added product with id"+prod.getId());//used getter in other class of same package
+				return prod;
+			}
+			
+	// list Products
+			void listProducts() {
+				for(int i=0; i<cindex; i++){
+					aprod[i].display();
+					 System.out.println("Deletec all products from shopping cart");
+
+				}
+				void display() {
+					System.out.println("listed products are");
+				}
+			
+//		Empty cart
+			 void emptycart() {
+				 aprod=new Product[5];
+				 cindex=0;
+				 System.out.println("Deletec all products from shopping cart");
+			 
+		}
+
+		public static void main(String args[]) {
+			ShoppingCart scart= new ShoppingCart();//Object as Array
+			Product p1=new Product(100,"Mobile");
+			scart.addProduct(p1);
+			Product p2=new Product(200,"Clothing");
+			scart.addProduct(p2);
+			scart.listProducts();
+		
+		}}
+
+}
+==========================
+Hnadson on extend Keyword
+
+package com.package1;
+
+public class Employee {
+
+	private int eid;
+	private String name;
+	
+	Employee(){
+		
+	}
+	Employee(int eid,String name){
+		this.eid=eid;
+		this.name=name;
+	}
+
+	public int getEid() {
+		return eid;
+	}
+
+	public void setEid(int eid) {
+		this.eid = eid;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void display() {
+		System.out.println("Employeeid"+eid+"Name"+name);
+	}
+}
+
+class PermanentEmploee extends Employee{
+	private float salary;
+	String addr;
+	
+	public PermanentEmploee(float salary,String addr) {
+		this.salary=salary;
+		this.addr=addr;
+	}
+
+	public float getSalary() {
+		return salary;
+	}
+
+	public void setSalary(float salary) {
+		this.salary = salary;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	
+}
