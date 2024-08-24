@@ -103,3 +103,37 @@ public class TrreSetEg {
 class MyComparator implements Comparatot
 ==========================
 
+4)Sorting using Comparator
+package com.collectionpackage4;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.Map.Entry;
+
+public class SortingUsingComparator {
+
+	public static void main(String str[]) {
+		TreeMap<String,String> hmss=new TreeMap<>(New Mycomparator());//Sort using comparator
+		hmss.put("Karnadaka", "Banglore");
+		hmss.put("Tamil Nadu", "Chemmai");
+		hmss.put("Kerala", "Trivandrum");
+		
+		Set<Entry<String,String>> sess=hmss.entrySet();
+		Iterator<Entry<String,String>> itr=sess.iterator();
+		//Using Iterator
+		while(itr.hasNext()) {
+			Entry<String,String> ess=itr.next();//type is entry type
+			System.out.println(ess.getKey()+"->"+ess.getValue());
+		}
+		//using Enhanced For loop
+		for(Entry<String,String>ess:sess) {
+			System.out.println(ess.getKey()+"->"+ess.getValue());
+
+		}
+
+	}
+}
+===================================
