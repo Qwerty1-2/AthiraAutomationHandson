@@ -1,0 +1,105 @@
+1)Hash Set
+package com.collectionpackage4;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+1)Hash Set
+package com.collectionpackage4;
+
+import java.util.HashSet;
+
+public class HashSetEg2 {
+
+	public static void main(String args[]) {
+		HashSet<City> hss=new HashSet<>();
+		
+		//add city object to list
+		hss.add(new City("city1",1234,"captital1"));
+		hss.add(new City("city1",1234,"captital1"));
+		hss.add(new City("city2",13434,"captital2"));
+
+        
+
+		for(City element:hss) {
+			System.out.println(element+"\n");
+		}
+	}
+}
+
+=====================
+2)Hahs Set
+package com.collectionpackage4;
+
+import java.util.HashSet;
+
+public class HassetEg {
+
+	public static void main(String args[]) {
+		HashSet<String> hss=new HashSet<>();
+		hss.add("asdf");
+		hss.add("seryu");
+        hss.add("hjtv");
+		hss.add("ertyu");
+
+		for(String element:hss) {
+			System.out.println(element+"\t");
+		}
+	}
+}
+
+========================================
+3)Treeset
+package com.collectionpackage4;
+
+import java.util.Iterator;
+import java.util.TreeSet;
+public class Country {
+	private String name;
+	private double gdp;
+	public Country(String name,double gdp) {
+		super();
+		this.name=name;
+		this.gdp=gdp;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getGdp() {
+		return gdp;
+	}
+	public void setGdp(double gdp) {
+		this.gdp = gdp;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Country [name="+name+",gdp="+gdp+"]";
+	}
+	
+
+}
+
+public class TrreSetEg {
+	public static void main(String args[]) {
+		
+		TreeSet<Country> tss=new TreeSet<String>(new Mycomparator());
+	tss.add("wefrwrwerr");
+	tss.add("Sdfsfsdfsf");
+	tss.add("safdff");
+	Iterator<String> itr=tss.iterator();
+	for(;itr.hasNext) {
+	System.out.println();	}
+
+}
+}
+
+
+class MyComparator implements Comparatot
+==========================
+
