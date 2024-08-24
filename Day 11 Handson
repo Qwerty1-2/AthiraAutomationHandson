@@ -27,6 +27,91 @@ public class HagMapEg {
 
 		}
 
+
+
+
+
+===============================
+2)Stream Handson
+package com.collectionpackage4;
+
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class StreamEg {
+
+	public static void main(String args[]) {
+		List<Integer> list=Array.asList(4,3,15,6,12,20);
+		//Filter(),map(),reduce().reduce for reducing multiple to single value by finding avaerage/sum ...
+		list.stream().filter((e)- > e > 10).forEach((e)->{
+			System.out.println(e);
+		});
+		//Code To reduce 
+		/*
+		 	List<Integer>	list.stream().filter((e)- > e > 10).forEach((e)->{
+
+		 */
+	}
+}
+======================================
+
+3)TreeMap/Hahs Map
+package com.Map;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
+
+public class State {
+private String name;
+private long population;
+public State(String name, long population) {
+	super();
+	this.name = name;
+	this.population = population;
+}
+@Override
+public String toString() {
+	// TODO Auto-generated method stub
+	return super.toString();
+}
+}
+class City{
+	private String name;
+	private double total_area;
+	public City(String name, double total_area) {
+		super();
+		this.name = name;
+		this.total_area = total_area;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+
+public static void main(String str[]) {
+	Map<State,City> hmss=new HashMap<>();//Entry and 2 string refers to key  value pair
+	hmss.put(new State("Karnadaka",2345), new City("Banglore",1421));
+	hmss.put(new State("Tamil Nadu",4325),new City("Chennai",4567));
+	hmss.put(new State("Kerala",3456),    new City("Trivandrum",3333));
+	
+	Set<Entry<State, City>> sess=hmss.entrySet();
+	Iterator<Entry<State, City>> itr=sess.iterator();
+	//Using Iterator
+	while(itr.hasNext()) {
+		Entry<State, City> ess=itr.next();//type is entry type
+		System.out.println(ess.getKey()+"->"+ess.getValue());
+	}
+
+	}
+}
+============================================================
+
 	}
 
 }
