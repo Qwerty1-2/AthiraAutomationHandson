@@ -1,0 +1,353 @@
+1)Junit Handson
+========
+Arithmetic CLass
+===
+package com.Junit;
+
+public class Arithmetic {
+
+	public Arithmetic() {
+		System.out.println("Arithmetic()");
+	}
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public int subtract(int a, int b) {
+        return a - b;
+    }
+
+   public int multiply(int a, int ab) {
+        int b = 0;
+		return a * b;
+    }
+
+//    public int divide(int a, int b) {
+//        if (b == 0) {
+//            throw new ArithmeticException("Cannot divide by zero");
+//        }
+//        return a / b;
+//    }
+    
+ public double maxValue(double a, double b) {
+    	
+     if(a>b) {
+    	 return a;
+     }
+       else {
+	return b;
+	}
+}
+  
+    public int minValue(int a,int b) {
+     if(a<b) {
+             return a;
+		}
+     else {
+	      return b;
+    }
+    }
+    
+public int[] reverse(int[] arr) {
+	  int tmp;
+	   int n=arr.length;
+	  for(int i=0;i<n/2;i++) {
+		  tmp=arr[i];
+		  arr[i]=arr[n-i-1];
+		  arr[n-i-1]=tmp;
+	  }
+	  System.out.println("reverse");
+	return arr;
+}
+
+}
+=======================
+Calculate class
+======
+//package com.Junit;
+//
+//public class Calculate {
+//	//Method under Test
+//	public int add(int a,int b) {
+//		return a+b;
+//	}
+//
+//}
+====================
+Person class
+======
+package com.Junit;
+
+import java.util.Objects;
+
+public class Person {
+	private String name;
+	private int age;
+	private float loan_eligibility;
+	
+
+	public Person(String name, int age, float loan_eligibility) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.loan_eligibility = loan_eligibility;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+public float getLoan_eligibility() {
+		return loan_eligibility;
+	}
+
+	public void setLoan_eligibility(float loan_eligibility) {
+		this.loan_eligibility = loan_eligibility;
+	}
+	
+	public Person addEligibility(float percent){
+	float multiplier=(float) (1+(percent*0.01));
+	loan_eligibility= loan_eligibility*multiplier;
+	return this;	
+	}
+//Hahscode and equlas methods needs to be overriden when we need to compare objects
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, loan_eligibility, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return age == other.age
+				&& Float.floatToIntBits(loan_eligibility) == Float.floatToIntBits(other.loan_eligibility)
+				&& Objects.equals(name, other.name);}
+
+}
+==================
+ArithmeticTest
+-=========
+package com.Junitpack;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
+import com.Junit.Arithmetic;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)///need to add for ordering methods
+class ArithmeticTest {
+
+    private final Arithmetic arithmetic = new Arithmetic();
+
+    @BeforeAll//executed only once before all testcases
+    static void befallmet() {
+    System.out.println("Before All method");	
+    }
+
+    @BeforeEach
+    void befeachmet() {
+    		//arith=new Arithmetic();
+    System.out.println("Before Each method");	
+    }
+    
+    
+    //Negative test
+     @Test  //TestCase
+     @Tag("feature1")//group test of particular department.feature
+     @Order(1)//if we need to execute this testcase first can use order annotation
+    void testMet() {
+    	Arithmetic arith=new Arithmetic();
+   	 System.out.println("5th Test");
+    	//invoke business logic method with certain parameters
+    	int actualvalu=arithmetic.add(-3,-5);
+    	//Crosscheck return value withExoected using assert
+    	assertEquals(-8,actualvalu,"Addition should work for negative case also");
+     
+     }
+     @Test  
+     @Tag("feature1")//group test of particular department/feature.while adding tag ,we need to add that feature in run configuration tag path.// added feature name in group tag in pom.xml
+
+     @Order(3)
+     void testMaxValue() {
+     	Arithmetic arithmetic=new Arithmetic();
+    	 double maxValue=arithmetic.maxValue(1.2,2.2);
+    	 System.out.println("3rd Test");
+    	 assertEquals(2.2,maxValue,"MaxValue should return maximum of 2 values for Positive case");
+     }
+//     @Test
+//     void testMaxValue() {
+//    	 Arithmetic arithmetic=new Arithmentics();
+//    	double maxValue= arithmetic.maxValue(-2.23,-3.45 );
+//    	 assertEquals(-2.23,maxValue,"MaxValue should return maximum of 2 values for negative case");
+//     }
+//    
+    @Test
+    @Tag("feature2")//group test of particular department.feature
+    @Order(2)//execcuted 2ndly
+    void testAdd() {
+   	 System.out.println("2nd Test");
+        assertEquals(5, arithmetic.add(2, 3), "Addition should return the sum of two numbers");
+    }
+    
+    @Disabled //annotation for not executing particular method
+    @Test
+    void testSubtract() {
+    	
+        assertEquals(1, arithmetic.subtract(5, 4), "Subtraction should return the difference of two numbers");
+    }
+
+    @Test
+    @Order(4)
+    void testMultiply() {
+   	 System.out.println("4th Test");
+        assertEquals(6, arithmetic.multiply(2, 3), "Multiplication should return the product of two numbers");
+    }
+
+//    @Test
+//    void testDivide() {
+//        assertEquals(2, arithmetic.divide(6, 3), "Division should return the quotient of two numbers");
+//    }
+//
+//    @Test
+//    void testDivideByZero() {
+//        ArithmeticException thrown = assertThrows(ArithmeticException.class, () -> arithmetic.divide(1, 0), "Division by zero should throw ArithmeticException");
+//        assertEquals("Cannot divide by zero", thrown.getMessage());
+//    }
+    @Test
+    @Tag("feature1")
+    void meta() {
+    	int arr[]= {11,22,33,44,55};
+    	int[] actualar=arithmetic.reverse(arr);
+    	int[] expectedarr= {55,44,33,22,11};
+    	assertEquals(expectedarr,actualar,"Comparing reverse array with given array");
+    }
+    
+    @AfterEach
+    void metAfter() {
+      	 System.out.println("AfterEach");
+
+    	
+    }
+    
+   
+    //before all and after all methods needs to be static
+    @AfterAll   //cleanup activities db updation can be done
+   static void metAfterall() {
+     	 System.out.println("Afterall");
+
+    	
+    }
+    @Test
+    @Tag("feature2")
+    @Order(7)
+
+    void minValueTest() {
+    	Arithmetic arithmetic=new Arithmetic();
+    	int min_value = arithmetic.minValue(2,3);
+    	assertEquals(2,min_value,"To find min value");
+        System.out.println("min value");	
+
+    	
+    }
+    
+}
+===================
+CalculateTest
+=====
+package com.Junitpack;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import com.Junit.Calculate;
+
+public class CalculateTest {
+	Calculate calculate;
+@BeforeEach
+	void met() {
+ calculate=new Calculate();
+		}
+
+	
+	
+@ParameterizedTest	
+@CsvSource({
+	"1,2,3",
+	"1,4,5",
+	"0,0,0"
+})
+void testAddtion(int a,int b,int expectedval) {
+		
+		int actualval=calculate.add(a,b);
+		assertEquals(expectedval,actualval,"sum of " + a + "and"+ b+ "is" +expectedval);
+		
+	}
+}
+
+==================
+PersonTest
+=========
+package com.Junitpack;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.Junit.Person;
+
+public class PersonTest {
+
+	
+	@BeforeEach
+	void met1() {
+Person person = new Person("name1",34,10000);
+	
+	}
+	@Test
+	void met() {
+	Person person = null;
+	//Increment Eligibility
+	Person person_actual=person.addEligibility(10);
+	//assert
+		
+		assertEquals(11000,person_actual.getLoan_eligibility(),"checking loan eligibility,after increenting 10 person");
+		Person person_expected=new Person("name1",34,11000);
+		assertEquals(person_expected,person_actual,"Directly checking Objects after incrementing salary");
+		
+	}
+		
+	}
+
